@@ -8,7 +8,9 @@ export default {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui' },
+      { "http-equiv": 'Content-Type', content: 'text/html; charset=UTF-8' },
+      { "http-equiv": 'X-UA-Compatible', content: 'IE=edge' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
@@ -34,15 +36,21 @@ export default {
       { rel: "stylesheet", type: "text/css", href: "/assets/css/style.css" }      
     ],
     script: [
-      { src: "/app-assets/vendondors.min.js", body: true },
-      { src: "/app-assets/vendoarts/apexcharts.min.js", body: true },
-      { src: "/app-assets/vendotensions/tether.min.js", body: true },
-      { src: "/app-assets/vendotensions/shepherd.min.js", body: true },
-      { src: "/app-assere/app-menu.js", body: true },
-      { src: "/app-assere/app.js", body: true },
-      { src: "/app-asseripts/components.js", body: true },
-      { src: "/app-asseripts/pages/dashboard-analytics.js", body: true }
-    ]
+      { src: "/app-assets/vendors/js/vendors.min.js", body: true },
+      { src: "/app-assets/vendors/js/charts/apexcharts.min.js", body: true },
+      { src: "/app-assets/vendors/js/extensions/tether.min.js", body: true },
+      { src: "/app-assets/vendors/js/extensions/shepherd.min.js", body: true },
+      { src: "/app-assets/js/core/app-menu.js", body: true },
+      { src: "/app-assets/js/core/app.js", body: true },
+      { src: "/app-assets/js/scripts/components.js", body: true },
+      { src: "/app-assets/js/scripts/pages/dashboard-analytics.js", body: true }
+    ],
+    bodyAttrs: {
+      class: 'vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static menu-collapsed',
+      "data-open": 'click',
+      "data-menu": 'vertical-menu-modern',
+      "data-col": "2-columns",
+    }
   },
   /*
   ** Customize the progress-bar color
