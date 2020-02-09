@@ -4,7 +4,7 @@ div
         .content-header-left.col-md-9.col-12.mb-2
             .row.breadcrumbs-top
                 .col-12
-                    h2.content-header-title.float-left.mb-0 Afkarak
+                    h2.content-header-title.float-left.mb-0 AFKARAK
                                 
         .content-header-right.text-md-right.col-md-3.col-12.d-md-block.d-none
             .form-group.breadcrum-right
