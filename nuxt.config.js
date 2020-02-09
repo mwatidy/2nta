@@ -39,14 +39,14 @@ export default {
       { src: "/app-assets/vendors/js/vendors.min.js", body: true },
       { src: "/app-assets/vendors/js/charts/apexcharts.min.js", body: true },
       { src: "/app-assets/vendors/js/extensions/tether.min.js", body: true },
-      { src: "/app-assets/vendors/js/extensions/shepherd.min.js", body: true },
+      //{ src: "/app-assets/vendors/js/extensions/shepherd.min.js", body: true },
       { src: "/app-assets/js/core/app-menu.js", body: true },
       { src: "/app-assets/js/core/app.js", body: true },
       { src: "/app-assets/js/scripts/components.js", body: true },
       { src: "/app-assets/js/scripts/pages/dashboard-analytics.js", body: true }
     ],
     bodyAttrs: {
-      class: 'vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static menu-collapsed',
+      class: 'vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static menu-expanded',
       "data-open": 'click',
       "data-menu": 'vertical-menu-modern',
       "data-col": "2-columns",
