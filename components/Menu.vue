@@ -15,7 +15,7 @@ div
     .main-menu-content
       ul.navigation.navigation-main#main-menu-navigation(data-menu='menu-navigation')
         li.nav-item
-          a(href='index.html')
+          nuxt-link(to="/")
             i.feather.icon-map
             span.menu-title(data-i18n='Dashboard') ELKHETA
             span.badge.badge.badge-warning.badge-pill.float-right.mr-2
@@ -23,29 +23,29 @@ div
         li.navigation-header
           span 2NTA
         li.nav-item
-          a(href='#')
+          nuxt-link(to="/afkarak")
             i.feather.icon-anchor
             span.menu-title(data-i18n='Email') AFKARK
         li.nav-item
-          a(href='#')
+          nuxt-link(to="/")
             i.feather.icon-briefcase
             span.menu-title(data-i18n='Email') MASHARE3AK
         li.nav-item
-          a(href='#')
+          nuxt-link(to="/")
             i.feather.icon-check-square
             span.menu-title(data-i18n='Email') MWAZAFENAK
         li.navigation-header
           span ELMOGTAMA3
         li.nav-item
-          a(href='#')
+          nuxt-link(to="/")
             i.feather.icon-anchor
             span.menu-title(data-i18n='Email') NAS
         li.nav-item
-          a(href='#')
+          nuxt-link(to="/afkar")
             i.feather.icon-briefcase
             span.menu-title(data-i18n='Email') AFKAR
         li.nav-item
-          a(href='#')
+          nuxt-link(to="/")
             i.feather.icon-check-square
             span.menu-title(data-i18n='Email') MASHARE3
 
