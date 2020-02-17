@@ -6,6 +6,8 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _19e01eca = () => interopDefault(import('../pages/afkar.vue' /* webpackChunkName: "pages/afkar" */))
 const _75bb39f6 = () => interopDefault(import('../pages/afkarak.vue' /* webpackChunkName: "pages/afkarak" */))
 const _e6d07c82 = () => interopDefault(import('../pages/fekra.vue' /* webpackChunkName: "pages/fekra" */))
+const _29d1a6ba = () => interopDefault(import('../pages/user/index.vue' /* webpackChunkName: "pages/user/index" */))
+const _3073e04c = () => interopDefault(import('../pages/user/test.vue' /* webpackChunkName: "pages/user/test" */))
 const _69192056 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
@@ -36,6 +38,14 @@ export const routerOptions = {
     path: "/fekra",
     component: _e6d07c82,
     name: "fekra"
+  }, {
+    path: "/user",
+    component: _29d1a6ba,
+    name: "user"
+  }, {
+    path: "/user/test",
+    component: _3073e04c,
+    name: "user-test"
   }, {
     path: "/",
     component: _69192056,

@@ -6,6 +6,7 @@
       .content-overlay
       .header-navbar-shadow
       .content-wrapper
+        h1 this is a companyAccount: {{ companyAccount }}
         Nuxt
 
     .sidenav-overlay
@@ -19,7 +20,13 @@ import Menu from '~/components/Menu.vue'
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 
+
 export default {
+  computed: {
+    companyAccount() {
+      return this.$store.main.companyAccount || "null"
+    }
+  },
   components: {
     Menu,
     Header,

@@ -17,9 +17,17 @@ div
         li.nav-item
           nuxt-link(to="/")
             i.feather.icon-map
-            span.menu-title(data-i18n='Dashboard') ELKHETA
+            span.menu-title(data-i18n='Dashboard') ALMANASA
             span.badge.badge.badge-warning.badge-pill.float-right.mr-2
               | 2
+        li.nav-item
+          nuxt-link(to="/")
+            i.feather.icon-user
+            span.menu-title(data-i18n='Dashboard') PROFILAK
+        li.nav-item
+          nuxt-link(to="/")
+            i.feather.icon-inbox
+            span.menu-title(data-i18n='Dashboard') RASA2L
         li.navigation-header
           span 2NTA
         li.nav-item
@@ -29,25 +37,30 @@ div
         li.nav-item
           nuxt-link(to="/")
             i.feather.icon-briefcase
-            span.menu-title(data-i18n='Email') MASHARE3AK
+            span.menu-title(data-i18n='Email') SHAREKATK
         li.nav-item
           nuxt-link(to="/")
             i.feather.icon-check-square
-            span.menu-title(data-i18n='Email') MWAZAFENAK
+            span.menu-title(data-i18n='Email') WAZA2FK
         li.navigation-header
           span ELMOGTAMA3
         li.nav-item
-          nuxt-link(to="/")
-            i.feather.icon-anchor
-            span.menu-title(data-i18n='Email') NAS
-        li.nav-item
           nuxt-link(to="/afkar")
-            i.feather.icon-briefcase
+            i.feather.icon-anchor
             span.menu-title(data-i18n='Email') AFKAR
         li.nav-item
           nuxt-link(to="/")
+            i.feather.icon-briefcase
+            span.menu-title(data-i18n='Email') SHAREKAT
+        li.nav-item
+          nuxt-link(to="/")
+            i.feather.icon-users
+            span.menu-title(data-i18n='Email') NAS
+        li.nav-item
+          nuxt-link(to="/")
             i.feather.icon-check-square
-            span.menu-title(data-i18n='Email') MASHARE3
+            span.menu-title(data-i18n='Email') WAZA2F
+
 
 </template>
 

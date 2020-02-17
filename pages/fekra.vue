@@ -224,7 +224,6 @@ export default {
     head: {
         title: "Fekra | 2nta",
         script: [
-
             { src: "/app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js", body: true },
             { src: "/app-assets/vendors/js/extensions/swiper.min.js", body: true },
             { src: "/app-assets/js/scripts/forms/number-input.js", body: true },

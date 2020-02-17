@@ -79,17 +79,19 @@ div
 
 <script>
 export default {
-    head: {
+    head() {
+        return {
+
         title: "2fkarak 2nta",
         script: [
-            { src: "/app-assets/vendors/js/extensions/dropzone.min.js", body: true },
-            { src: "/app-assets/vendors/js/tables/datatable/datatables.min.js", body: true },
-            { src: "/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js", body: true },
-            { src: "/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js", body: true },
-            { src: "/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js", body: true },
-            { src: "/app-assets/vendors/js/tables/datatable/dataTables.select.min.js", body: true },
-            { src: "/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js", body: true },
-            { src: "/app-assets/js/scripts/ui/data-list-view.js", body: true },
+            { src: "/app-assets/vendors/js/extensions/dropzone.min.js", body: true, defer: true },
+            { src: "/app-assets/vendors/js/tables/datatable/datatables.min.js", body: true, defer: true },
+            { src: "/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js", body: true, defer: true },
+            { src: "/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js", body: true, defer: true },
+            { src: "/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js", body: true, defer: true },
+            { src: "/app-assets/vendors/js/tables/datatable/dataTables.select.min.js", body: true, defer: true },
+            { src: "/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js", body: true, defer: true },
+            { src: "/app-assets/js/scripts/ui/data-list-view.js", body: true, defer: true },
 
         ],
         link: [
@@ -119,6 +121,7 @@ export default {
             "href": "/app-assets/css/pages/data-list-view.css"
         }
     ]
+    }
     }   
 }
 </script>
