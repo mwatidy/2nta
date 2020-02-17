@@ -5,6 +5,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _19e01eca = () => interopDefault(import('../pages/afkar.vue' /* webpackChunkName: "pages/afkar" */))
 const _75bb39f6 = () => interopDefault(import('../pages/afkarak.vue' /* webpackChunkName: "pages/afkarak" */))
+const _39d5bd44 = () => interopDefault(import('../pages/company/index.vue' /* webpackChunkName: "pages/company/index" */))
 const _e6d07c82 = () => interopDefault(import('../pages/fekra.vue' /* webpackChunkName: "pages/fekra" */))
 const _29d1a6ba = () => interopDefault(import('../pages/user/index.vue' /* webpackChunkName: "pages/user/index" */))
 const _3073e04c = () => interopDefault(import('../pages/user/test.vue' /* webpackChunkName: "pages/user/test" */))
@@ -34,6 +35,10 @@ export const routerOptions = {
     path: "/afkarak",
     component: _75bb39f6,
     name: "afkarak"
+  }, {
+    path: "/company",
+    component: _39d5bd44,
+    name: "company"
   }, {
     path: "/fekra",
     component: _e6d07c82,

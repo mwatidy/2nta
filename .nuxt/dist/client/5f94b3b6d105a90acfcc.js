@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{152:function(t,n,e){"use strict";e.r(n);var l={layout:"defaultCompany"},o=e(5),component=Object(o.a)(l,(function(){var t=this.$createElement;return(this._self._c||t)("h1",[this._v(" THIS IS THE COMPANY DASHBOARD ")])}),[],!1,null,null,null);n.default=component.exports}}]);

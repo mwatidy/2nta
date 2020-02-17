@@ -38,10 +38,6 @@ div
           nuxt-link(to="/")
             i.feather.icon-briefcase
             span.menu-title(data-i18n='Email') MWAZAFEEN
-        li.nav-item
-          nuxt-link(to="/")
-            i.feather.icon-check-square
-            span.menu-title(data-i18n='Email') WAZA2FK
         li.navigation-header
           span ELMOGTAMA3
         li.nav-item
@@ -60,7 +56,6 @@ div
           nuxt-link(to="/")
             i.feather.icon-check-square
             span.menu-title(data-i18n='Email') WAZA2F
-
 
 </template>
 
