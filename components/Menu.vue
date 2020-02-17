@@ -36,10 +36,6 @@ div
             span.menu-title(data-i18n='Email') AFKARK
         li.nav-item
           nuxt-link(to="/")
-            i.feather.icon-briefcase
-            span.menu-title(data-i18n='Email') SHAREKATK
-        li.nav-item
-          nuxt-link(to="/")
             i.feather.icon-check-square
             span.menu-title(data-i18n='Email') WAZA2FK
         li.navigation-header
