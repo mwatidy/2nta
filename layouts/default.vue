@@ -5,8 +5,7 @@
     .app-content.content
       .content-overlay
       .header-navbar-shadow
-      .content-wrapper
-        Nuxt
+      Nuxt
 
     .sidenav-overlay
     .drag-target

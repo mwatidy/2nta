@@ -1,1 +1,0 @@
-exports.ids=[3],exports.modules={24:function(t,e,r){"use strict";r.r(e);var l={layout:"defaultCompany"},n=r(1),component=Object(n.a)(l,(function(){var t=this.$createElement;return(this._self._c||t)("h1",[this._ssrNode(" THIS IS THE COMPANY DASHBOARD ")])}),[],!1,null,null,"6e2d54ac");e.default=component.exports}};

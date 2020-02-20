@@ -1,21 +1,74 @@
 <template lang="pug">
-  div
-    h1 LET'S START WORKING TOGETHER!
+section
+    .row.d-flex.vh-100.align-items-center.justify-content-center
+        .col-xl-5.col-md-8.col-sm-10.col-12.px-md-0.px-2
+            
+            .card.text-center.w-100.mb-0
+                .card-header.justify-content-center.pb-0
+                    .card-title
+                        h2.my-2 2NTA is coming soon.
+                .card-content
+                    .card-body.pt-0
+                        img.img-responsive.block.width-150.mx-auto(src='~/assets/images/pages/rocket.png', width='150', alt='bg-img')
+                        #clockFlat.card-text.text-center.getting-started.pt-2.d-flex.justify-content-center.flex-wrap
+                        div(v-if="!collected")
+                            .divider
+                                .divider-text Stay updated
+                            p.text-left.
+                                
+                                Leave us your email and we will let you know as soon as we launch
+                                
+                            form.form-horizontal(v-on:submit.prevent="saveEmail()")
+                                fieldset.form-label-group
+                                    input.form-control#user-email(type='email', placeholder='Email', v-model="email")
+                                    label(for='user-email') Email
 
+                            button.btn.btn-primary.w-100(@click="saveEmail()") Inform Me
+                        div(v-else)
+                            .divider
+                                .divider-text Email gathered
+                            p.text-center We will send you an email as soon as we are live
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import axios from 'axios'
 
 export default {
-  components: {
-    Logo
-  },
-  data() {
-    return {
-      hello: "yes"
-    }
-  }
+  layout: 'comingSoon',
+    head: {
+        link: [
+            { rel:'stylesheet', type: 'text/css', href: '/app-assets/css/pages/coming-soon.css' }
+        ],
+        script: [ 
+            { src:'/app-assets/vendors/js/coming-soon/jquery.countdown.min.js', body: true, defer: true },
+            { src:'/app-assets/js/scripts/pages/coming-soon.js', body: true, defer: true },
+        ],
+        bodyAttrs: { 
+            class: 'vertical-layout vertical-menu-modern 1-column navbar-floating footer-static bg-full-screen-image blank-page blank-page',
+            "data-open": 'click', 
+            "data-menu": 'vertical-menu-modern', 
+            "data-col": '1-column'
+        }
+    },
+    data() {
+        return {
+            email: "",
+        }
+    },
+    computed: {
+        collected() {
+                return this.$store.state.localStorage.emailGathered
+            }
+        },
+    methods: {
+        saveEmail() {
+            if(!this.$store.state.localStorage.emailGathered) {
+                axios.post('/api/email', { email: this.email }).then(_ => {
+                    this.$store.commit('localStorage/markAsGathered')
+                })   
+            }
+        }
+    },
 }
 </script>
 

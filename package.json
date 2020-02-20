@@ -11,7 +11,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "http.request": "^1.1.0",
+    "nuxt": "^2.0.0",
+    "nuxt-vuex-localstorage": "^1.2.6"
   },
   "devDependencies": {
     "pug": "^2.0.4",

@@ -7,14 +7,16 @@ import {
 } from './utils'
 
 import NuxtLoading from './components/nuxt-loading.vue'
+import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
+import _d43c67dc from '../layouts/comingSoon.vue'
 import _6f6c098b from '../layouts/default.vue'
 import _e669ef1c from '../layouts/defaultCompany.vue'
 
-const layouts = { "_default": _6f6c098b,"_defaultCompany": _e669ef1c }
+const layouts = { "_comingSoon": _d43c67dc,"_default": _6f6c098b,"_defaultCompany": _e669ef1c }
 
 export default {
-  head: {"title":"2nta","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"},{"http-equiv":"Content-Type","content":"text\u002Fhtml; charset=UTF-8"},{"http-equiv":"X-UA-Compatible","content":"IE=edge"},{"hid":"description","name":"description","content":"Kolo fe edeek"}],"link":[{"rel":"apple-touch-icon","href":"\u002Fapp-assets\u002Fimages\u002Fico\u002Fapple-icon-120.png"},{"rel":"shortcut icon","type":"image\u002Fx-icon","href":"\u002Fapp-assets\u002Fimages\u002Fico\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,600"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Fvendors.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Fextensions\u002Ftether-theme-arrows.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fbootstrap.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fbootstrap-extended.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcolors.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcomponents.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcore\u002Fmenu\u002Fmenu-types\u002Fvertical-menu.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcore\u002Fcolors\u002Fpalette-gradient.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fassets\u002Fcss\u002Fstyle.css"}],"script":[{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fvendors.min.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fcore\u002Fapp-menu.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fcore\u002Fapp.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fscripts\u002Fcomponents.js","body":true}],"bodyAttrs":{"class":"vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static menu-expanded","data-open":"click","data-menu":"vertical-menu-modern","data-col":"2-columns"},"style":[]},
+  head: {"title":"2nta","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"},{"http-equiv":"Content-Type","content":"text\u002Fhtml; charset=UTF-8"},{"http-equiv":"X-UA-Compatible","content":"IE=edge"},{"hid":"description","name":"description","content":"waza2f bshkl gdeed"}],"link":[{"rel":"apple-touch-icon","href":"\u002Fapp-assets\u002Fimages\u002Fico\u002Fapple-icon-120.png"},{"rel":"shortcut icon","type":"image\u002Fx-icon","href":"\u002Fapp-assets\u002Fimages\u002Fico\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,600"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Fvendors.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Fextensions\u002Ftether-theme-arrows.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fbootstrap.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fbootstrap-extended.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcolors.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcomponents.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcore\u002Fmenu\u002Fmenu-types\u002Fvertical-menu.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcore\u002Fcolors\u002Fpalette-gradient.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fassets\u002Fcss\u002Fstyle.css"}],"script":[{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fvendors.min.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fcore\u002Fapp-menu.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fcore\u002Fapp.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fscripts\u002Fcomponents.js","body":true}],"bodyAttrs":{"class":"vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static menu-expanded","data-open":"click","data-menu":"vertical-menu-modern","data-col":"2-columns"},"style":[]},
 
   render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })
@@ -48,7 +50,7 @@ export default {
       }
     }, [
       loadingEl,
-
+      h(NuxtBuildIndicator),
       transitionEl
     ])
   },
@@ -158,6 +160,10 @@ export default {
     },
 
     setLayout (layout) {
+      if(layout && typeof layout !== 'string') {
+        throw new Error('[nuxt] Avoid using non-string value as layout property.')
+      }
+
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }

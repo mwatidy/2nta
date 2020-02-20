@@ -63,6 +63,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    'nuxt-vuex-localstorage'
   ],
   /*
   ** Build configuration
@@ -73,5 +74,8 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  serverMiddleware: [
+    '~/api.js'
+  ]
 }

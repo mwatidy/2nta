@@ -1,1 +1,0 @@
-exports.ids=[6],exports.modules={29:function(e,t,r){"use strict";r.r(t);var o=r(1),component=Object(o.a)({},(function(){var e=this.$createElement;return(this._self._c||e)("h1",[this._ssrNode(" Welcome to User Dashboard ")])}),[],!1,null,null,"27e78852");t.default=component.exports}};
