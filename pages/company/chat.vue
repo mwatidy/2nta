@@ -7,6 +7,7 @@
 import ChatPage from "~/components/ChatPage"
 
 export default {
-    components: { ChatPage }  
+    layout: "defaultCompany",
+    components: { ChatPage }
 }
 </script>

@@ -15,27 +15,27 @@ div
     .main-menu-content
       ul.navigation.navigation-main#main-menu-navigation(data-menu='menu-navigation')
         li.nav-item
-          nuxt-link(to="/")
+          nuxt-link(to="/company")
             i.feather.icon-map
             span.menu-title(data-i18n='Dashboard') ALMANASA
             span.badge.badge.badge-warning.badge-pill.float-right.mr-2
               | 2
         li.nav-item
-          nuxt-link(to="/")
+          nuxt-link(to="/company/profile")
             i.feather.icon-user
             span.menu-title(data-i18n='Dashboard') PROFILE
         li.nav-item
-          nuxt-link(to="/")
+          nuxt-link(to="/company/chat")
             i.feather.icon-inbox
             span.menu-title(data-i18n='Dashboard') RASA2L
         li.navigation-header
           span 2NTA
         li.nav-item
-          nuxt-link(to="/afkarak")
+          nuxt-link(to="/company/")
             i.feather.icon-anchor
             span.menu-title(data-i18n='Email') WAZA2F
         li.nav-item
-          nuxt-link(to="/")
+          nuxt-link(to="/company")
             i.feather.icon-briefcase
             span.menu-title(data-i18n='Email') MWAZAFEEN
         li.navigation-header
@@ -45,15 +45,15 @@ div
             i.feather.icon-anchor
             span.menu-title(data-i18n='Email') AFKAR
         li.nav-item
-          nuxt-link(to="/")
+          nuxt-link(to="/company")
             i.feather.icon-briefcase
             span.menu-title(data-i18n='Email') SHAREKAT
         li.nav-item
-          nuxt-link(to="/")
+          nuxt-link(to="/company")
             i.feather.icon-users
             span.menu-title(data-i18n='Email') NAS
         li.nav-item
-          nuxt-link(to="/")
+          nuxt-link(to="/company")
             i.feather.icon-check-square
             span.menu-title(data-i18n='Email') WAZA2F
 

@@ -11,30 +11,32 @@ section
                     .card-body.pt-0
                         img.img-responsive.block.width-150.mx-auto(src='~/assets/images/pages/rocket.png', width='150', alt='bg-img')
                         #clockFlat.card-text.text-center.getting-started.pt-2.d-flex.justify-content-center.flex-wrap
-                        div(v-if="!collected")
-                            .divider
-                                .divider-text Stay updated
-                            p.text-left.
-                                
-                                Leave us your email and we will let you know as soon as we launch
-                                
-                            form.form-horizontal(v-on:submit.prevent="saveEmail()")
-                                fieldset.form-label-group
-                                    input.form-control#user-email(type='email', placeholder='Email', v-model="email")
-                                    label(for='user-email') Email
+                        client-only
+                            div(v-if="collected")
+                                .divider
+                                    .divider-text Email gathered
+                                p.text-center We will send you an email as soon as we are live
 
-                            button.btn.btn-primary.w-100(@click="saveEmail()") Inform Me
-                        div(v-else)
-                            .divider
-                                .divider-text Email gathered
-                            p.text-center We will send you an email as soon as we are live
+                            div(v-else)
+                                .divider
+                                    .divider-text Stay updated
+                                p.text-left.
+                                    
+                                    Leave us your email and we will let you know as soon as we launch
+                                    
+                                form.form-horizontal(v-on:submit.prevent="saveEmail()")
+                                    fieldset.form-label-group
+                                        input.form-control#user-email(type='email', placeholder='Email', v-model="email", required)
+                                        label(for='user-email') Email
+
+                                button.btn.btn-primary.w-100(@click="saveEmail()") Inform Me
 </template>
 
 <script>
 import axios from 'axios'
 
 export default {
-  layout: 'comingSoon',
+  layout: 'singleColumn',
     head: {
         link: [
             { rel:'stylesheet', type: 'text/css', href: '/app-assets/css/pages/coming-soon.css' }
@@ -53,6 +55,7 @@ export default {
     data() {
         return {
             email: "",
+            err: false,
         }
     },
     computed: {
@@ -62,6 +65,12 @@ export default {
         },
     methods: {
         saveEmail() {
+            
+            if(this.email.trim().length < 5) {
+                this.err = true
+                return
+            }
+                
             if(!this.$store.state.localStorage.emailGathered) {
                 axios.post('/api/email', { email: this.email }).then(_ => {
                     this.$store.commit('localStorage/markAsGathered')
