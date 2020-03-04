@@ -1,89 +1,112 @@
 <template lang="pug">
-section
-    .row.d-flex.vh-100.align-items-center.justify-content-center
-        .col-xl-5.col-md-8.col-sm-10.col-12.px-md-0.px-2
+.content-wrapper
+    .content-header.row
+        .content-header-left.col-md-9.col-12.mb-2
+            .row.breadcrumbs-top
+                .col-12
+                    h2.content-header-title.float-left.mb-0 Sharekat
+                                
+        .content-header-right.text-md-right.col-md-3.col-12.d-md-block.d-none
+            .form-group.breadcrum-right
+                .dropdown
+                    button.btn-icon.btn.btn-primary.btn-round.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                        i.feather.icon-settings
+                    .dropdown-menu.dropdown-menu-right
+                        a.dropdown-item(href='#') Chat
+                        a.dropdown-item(href='#') Email
+                        a.dropdown-item(href='#') Calendar
+    .content-body
+        //  Search Bar 
+        section#search-bar
+            .search-bar
+                form
+                    fieldset.form-group.position-relative.has-icon-left
+                        input.form-control.round#searchbar(type='text', placeholder='Bahth Sharekat')
+                        .form-control-position
+                            i.feather.icon-search.px-1
+            .row.search-result-info.mt-2.mb-1
+                .col-sm-8.float-left
+                    p.mt-1 Approx 84,00,00,000 results (0.35s)
+                .col-sm-4.float-right.text-sm-right
+                    .btn-group
+                        .dropdown
+                            button.btn.border-0.dropdown-toggle.px-0#dropdownItem1(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false').
+                                
+                                Any Time
+                                
+                            .dropdown-menu.dropdown-menu-right(aria-labelledby='dropdownItem1')
+                                a.dropdown-item(href='#') Any Time
+                                a.dropdown-item(href='#') Past Hour
+                                a.dropdown-item(href='#') Past 24 Hours
+                                a.dropdown-item(href='#') Past Week
+                                a.dropdown-item(href='#') Past Month
+                                a.dropdown-item(href='#') Past Year
+                                a.dropdown-item(href='#') Custom Period
+                        .dropdown
+                            button.btn.border-0.dropdown-toggle.px-0.ml-1#dropdownItem2(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false').
+                                
+                                All Result
+                                
+                            .dropdown-menu.dropdown-menu-right(aria-labelledby='dropdownItem2')
+                                a.dropdown-item(href='#') All Result
+                                a.dropdown-item(href='#') Verbatim
+        //  Search Bar end 
+        //  Search Form  
+        section#search-website
+            .row
+                .col-md-6.col-lg-4.profile-card-1(v-for="company in companies")
+                    .card
+                        .card-header.mx-auto
+                            .avatar.avatar-xl
+                                img.img-fluid(src="https://image-us.samsung.com/SamsungUS/home/samsung-logo-191-1.jpg" alt="img placeholder")
+                        .card-content
+                            .card-body.text-center
+                                h4 Samsung
+                                p Electronics
+                                .card-btns.d-flex.justify-content-center
+                                    button.btn.gradient-light-primary.waves-effect.waves-light Follow
+                                hr.my-2
+                                .d-flex.justify-content-between
+                                    .float-left
+                                        i.feather.icon-star.text-warning.mr-50 4.9
+                                    .float-right
+                                        i.feather.icon-briefcase.text-primary.mr-50 37 Projects
+
+
             
-            .card.text-center.w-100.mb-0
-                .card-header.justify-content-center.pb-0
-                    .card-title
-                        h2.my-2 2NTA is coming soon.
-                .card-content
-                    .card-body.pt-0
-                        img.img-responsive.block.width-150.mx-auto(src='~/assets/images/pages/rocket.png', width='150', alt='bg-img')
-                        #clockFlat.card-text.text-center.getting-started.pt-2.d-flex.justify-content-center.flex-wrap
-                        client-only
-                            div(v-if="collected")
-                                .divider
-                                    .divider-text Email gathered
-                                p.text-center We will send you an email as soon as we are live
+//  END: Content
 
-                            div(v-else)
-                                .divider
-                                    .divider-text Stay updated
-                                p.text-left.
-                                    
-                                    Leave us your email and we will let you know as soon as we launch
-                                    
-                                form.form-horizontal(v-on:submit.prevent="saveEmail()")
-                                    fieldset.form-label-group
-                                        input.form-control#user-email(type='email', placeholder='Email', v-model="email", required)
-                                        label(for='user-email') Email
-
-                                button.btn.btn-primary.w-100(@click="saveEmail()") Inform Me
 </template>
 
 <script>
-import axios from 'axios'
-// import isUser from '~/functions/general'
-
-
-
-export default { 
-  layout: $store.state.main.isEmployee ? 'default' : 'defaultCompany',
-    head: {
-        link: [
-            { rel:'stylesheet', type: 'text/css', href: '/app-assets/css/pages/coming-soon.css' }
-        ],
-        script: [ 
-            { src:'/app-assets/vendors/js/coming-soon/jquery.countdown.min.js', body: true, defer: true },
-            { src:'/app-assets/js/scripts/pages/coming-soon.js', body: true, defer: true },
-        ],
-        bodyAttrs: { 
-            class: 'vertical-layout vertical-menu-modern 1-column navbar-floating footer-static bg-full-screen-image blank-page blank-page',
-            "data-open": 'click', 
-            "data-menu": 'vertical-menu-modern', 
-            "data-col": '1-column'
-        }
-    },
+export default {
     data() {
         return {
-            email: "",
-            err: false,
+            companies: [0,0,0,0,0,0,0]
         }
     },
-    computed: {
-        collected() {
-                return this.$store.state.localStorage.emailGathered
-            }
-        },
-    methods: {
-        saveEmail() {
-            
-            if(this.email.trim().length < 5) {
-                this.err = true
-                return
-            }
-                
-            if(!this.$store.state.localStorage.emailGathered) {
-                axios.post('/api/email', { email: this.email }).then(_ => {
-                    this.$store.commit('localStorage/markAsGathered')
-                })   
-            }
-        }
-    },
+    head: {
+        title: "2fkar | 2nta",
+        script: [
+            { src: "/app-assets/vendors/js/ui/prism.min.js", body: true },
+            { src: "/app-assets/vendors/js/extensions/wNumb.js", body: true },
+            { src: "/app-assets/vendors/js/extensions/nouislider.min.js", body: true },
+            { src: "/app-assets/vendors/js/forms/select/select2.full.min.js", body: true },
+            { src: "/app-assets/js/scripts/pages/app-ecommerce-shop.js", body: true },
+        ],
+        link: [
+          { "rel": "stylesheet", "type": "text/css", "href": "/app-assets/vendors/css/extensions/nouislider.min.css"},
+          { "rel": "stylesheet", "type": "text/css", "href": "/app-assets/vendors/css/ui/prism.min.css"},
+          { "rel": "stylesheet", "type": "text/css", "href": "/app-assets/vendors/css/forms/select/select2.min.css" },
+          { "rel": "stylesheet", "type": "text/css", "href": "/app-assets/css/plugins/extensions/noui-slider.min.css" },
+          { "rel": "stylesheet", "type": "text/css", "href": "/app-assets/css/pages/app-ecommerce-shop.css" }
+        ],
+      bodyAttrs: {
+        class: 'vertical-layout vertical-menu-modern content-detached-left-sidebar ecommerce-application navbar-floating footer-static menu-expanded pace-done',
+        "data-open": 'click',
+        "data-menu": 'vertical-menu-modern',
+        "data-col": "content-detached-left-sidebar",
+      }
+    }
 }
 </script>
-
-<style>
-
-</style>

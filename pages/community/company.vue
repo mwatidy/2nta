@@ -6,7 +6,7 @@ h1 company list
 import axios from 'axios'
 
 export default {
-  layout: 'singleColumn',
+  layout: 'default',
     head: {
         link: [
             { rel:'stylesheet', type: 'text/css', href: '/app-assets/css/pages/coming-soon.css' }
