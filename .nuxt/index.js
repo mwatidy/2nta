@@ -12,7 +12,7 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_nuxtvuexlocalstorage_d912f862 from 'nuxt_plugin_nuxtvuexlocalstorage_d912f862' // Source: ./nuxt-vuex-localstorage.js (mode: 'client')
+import nuxt_plugin_nuxtvuexlocalstorage_40e2a47e from 'nuxt_plugin_nuxtvuexlocalstorage_40e2a47e' // Source: ./nuxt-vuex-localstorage.js (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -169,8 +169,8 @@ async function createApp (ssrContext) {
 
   // Plugin execution
 
-  if (process.client && typeof nuxt_plugin_nuxtvuexlocalstorage_d912f862 === 'function') {
-    await nuxt_plugin_nuxtvuexlocalstorage_d912f862(app.context, inject)
+  if (process.client && typeof nuxt_plugin_nuxtvuexlocalstorage_40e2a47e === 'function') {
+    await nuxt_plugin_nuxtvuexlocalstorage_40e2a47e(app.context, inject)
   }
 
   // If server-side, wait for async component to be resolved first

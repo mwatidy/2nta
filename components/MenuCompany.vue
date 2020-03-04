@@ -4,7 +4,7 @@ div
     .navbar-header
       ul.nav.navbar-nav.flex-row
         li.nav-item.mr-auto
-          a.navbar-brand(href='/html/ltr/vertical-collapsed-menu-template/index.html')
+          a.navbar-brand(href='/')
             .brand-logo
             h2.brand-text.mb-0 2NTA
         li.nav-item.nav-toggle
@@ -28,34 +28,24 @@ div
           nuxt-link(to="/company/chat")
             i.feather.icon-inbox
             span.menu-title(data-i18n='Dashboard') RASA2L
-        li.navigation-header
-          span 2NTA
         li.nav-item
-          nuxt-link(to="/company/")
-            i.feather.icon-anchor
-            span.menu-title(data-i18n='Email') WAZA2F
-        li.nav-item
-          nuxt-link(to="/company")
+          nuxt-link(to="/company/jobs")
             i.feather.icon-briefcase
-            span.menu-title(data-i18n='Email') MWAZAFEEN
+            span.menu-title(data-i18n='Email') WAZA2F
         li.navigation-header
           span ELMOGTAMA3
         li.nav-item
-          nuxt-link(to="/afkar")
+          nuxt-link(to="/community/ideas")
             i.feather.icon-anchor
             span.menu-title(data-i18n='Email') AFKAR
         li.nav-item
-          nuxt-link(to="/company")
+          nuxt-link(to="/community/companies")
             i.feather.icon-briefcase
             span.menu-title(data-i18n='Email') SHAREKAT
         li.nav-item
-          nuxt-link(to="/company")
+          nuxt-link(to="/community/people")
             i.feather.icon-users
             span.menu-title(data-i18n='Email') NAS
-        li.nav-item
-          nuxt-link(to="/company")
-            i.feather.icon-check-square
-            span.menu-title(data-i18n='Email') WAZA2F
 
 </template>
 

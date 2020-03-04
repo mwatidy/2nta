@@ -1,9 +1,9 @@
 export const state = () => ({
-  companyAccount: false
+  isEmployee: true
 })
 
 export const mutations = {
   changeAccount (state) {
-    state.companyAccount = !state.companyAccount
+    state.isEmployee = !state.isEmployee
   },
 }

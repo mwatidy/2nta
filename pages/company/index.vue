@@ -1,5 +1,5 @@
-<template>
-    <h1> THIS IS THE COMPANY DASHBOARD </h1>
+<template lang="pug">
+h1 company page
 </template>
 
 <script>
