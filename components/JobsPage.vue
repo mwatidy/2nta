@@ -75,7 +75,7 @@ export default {
         },
     head: {
         script: [
-            { src: '/app-assets/js/scripts/ui/data-list-view.js', body: true, defer: true },
+            { src: '/app-assets/js/scripts/ui/data-list-view.js', defer: true },
         ],
         bodyAttrs: {
             class: "vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static",
