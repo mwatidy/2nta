@@ -24,6 +24,6 @@ export default {
     MenuCompany,
     Header,
     Footer
-  }
+  },
 }
 </script>

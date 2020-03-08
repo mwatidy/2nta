@@ -25,13 +25,34 @@ export default {
       { rel: "stylesheet", type: "text/css", href: "/app-assets/css/components.css" },
       { rel: "stylesheet", type: "text/css", href: "/app-assets/css/core/menu/menu-types/vertical-menu.css" },
       { rel: "stylesheet", type: "text/css", href: "/app-assets/css/core/colors/palette-gradient.css" },
-      { rel: "stylesheet", type: "text/css", href: "/assets/css/style.css" }      
+      { rel:'stylesheet', type:'text/css', href:'/app-assets/css/pages/dashboard-analytics.css' },
+      { rel:'stylesheet', type:'text/css', href:'/app-assets/css/pages/card-analytics.css' },
+      { rel: "stylesheet", type: "text/css", href: "/app-assets/vendors/css/file-uploaders/dropzone.min.css" },
+      { rel: "stylesheet", type: "text/css", href: "/app-assets/vendors/css/tables/datatable/datatables.min.css" },
+      { rel: "stylesheet", type: "text/css", href: "/app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css" },
+      { rel: "stylesheet", type: "text/css", href: "/app-assets/css/plugins/file-uploaders/dropzone.css"},
+      { rel: "stylesheet", type: "text/css", href: "/app-assets/css/pages/data-list-view.css"},
+      { rel: 'stylesheet', href:"/app-assets/css/pages/users.css" },
+      { rel: "stylesheet", type: "text/css", href: "/assets/css/style.css" },
     ],
     script: [
       { src: "/app-assets/vendors/js/vendors.min.js", body: true },
       { src: "/app-assets/js/core/app-menu.js", body: true },
       { src: "/app-assets/js/core/app.js", body: true },
       { src: "/app-assets/js/scripts/components.js", body: true },
+      { src: '/app-assets/vendors/js/charts/apexcharts.min.js', body: true },
+      { src: '/app-assets/vendors/js/extensions/tether.min.js', body: true },
+      { src: '/app-assets/vendors/js/extensions/shepherd.min.js', body: true },
+      { src: "/app-assets/vendors/js/extensions/dropzone.min.js", body: true, defer: true },
+      { src: "/app-assets/vendors/js/tables/datatable/datatables.min.js", body: true, defer: true },
+      { src: "/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js", body: true, defer: true },
+      { src: "/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js", body: true, defer: true },
+      { src: "/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js", body: true, defer: true },
+      { src: "/app-assets/vendors/js/tables/datatable/dataTables.select.min.js", body: true, defer: true },
+      { src: "/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js", body: true, defer: true },
+
+
+
     ],
     bodyAttrs: {
       class: 'vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static menu-expanded',

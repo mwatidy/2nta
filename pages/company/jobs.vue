@@ -4,7 +4,7 @@
 
 <script>
 
-import JobsPage from "~/components/Jobs"
+import JobsPage from "~/components/JobsPage"
 
 export default {
     layout: "defaultCompany",

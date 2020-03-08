@@ -68,9 +68,11 @@
                                 hr.my-2
                                 .d-flex.justify-content-between
                                     .float-left
-                                        i.feather.icon-star.text-warning.mr-50 4.9
+                                        i.feather.icon-star.text-warning.mr-50 
+                                        | 4.9
                                     .float-right
-                                        i.feather.icon-briefcase.text-primary.mr-50 37 Projects
+                                        i.feather.icon-briefcase.text-primary.mr-50 
+                                        | 37 Projects
 
 
             

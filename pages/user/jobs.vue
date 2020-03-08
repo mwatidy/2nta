@@ -4,10 +4,10 @@
 
 <script>
 
-import JobsPage from "~/components/Jobs"
+import JobsPage from "~/components/JobsPage"
 
 export default {
-    layout: "defaultCompany",
+    layout: "default",
     components: { JobsPage },
     data() {
         return {
@@ -20,3 +20,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .actions.action-btns .btn.btn-outline-primary {
+         visibility: hidden; 
+    }
+
+</style>

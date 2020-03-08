@@ -7,7 +7,7 @@
     Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
-$(document).ready(function() {
+
   "use strict"
   // init list view datatable
   var dataListView = $(".data-list-view").DataTable({
@@ -160,4 +160,3 @@ $(document).ready(function() {
   if (navigator.userAgent.indexOf("Mac OS X") != -1) {
     $(".dt-checkboxes-cell input, .dt-checkboxes").addClass("mac-checkbox")
   }
-})

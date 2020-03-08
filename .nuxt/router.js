@@ -4,6 +4,7 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _ecb00d94 = () => interopDefault(import('../pages/company/index.vue' /* webpackChunkName: "pages/company/index" */))
+const _a0bc3f4e = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
 const _22f04008 = () => interopDefault(import('../pages/user/index.vue' /* webpackChunkName: "pages/user/index" */))
 const _25fa06ab = () => interopDefault(import('../pages/community/companies.vue' /* webpackChunkName: "pages/community/companies" */))
 const _5987ce4d = () => interopDefault(import('../pages/community/company.vue' /* webpackChunkName: "pages/community/company" */))
@@ -18,6 +19,7 @@ const _8df2d8e6 = () => interopDefault(import('../pages/company/profile.vue' /* 
 const _2a450444 = () => interopDefault(import('../pages/company/test.vue' /* webpackChunkName: "pages/company/test" */))
 const _2620dedc = () => interopDefault(import('../pages/user/chat.vue' /* webpackChunkName: "pages/user/chat" */))
 const _41f0e292 = () => interopDefault(import('../pages/user/ideas.vue' /* webpackChunkName: "pages/user/ideas" */))
+const _5fb7d61a = () => interopDefault(import('../pages/user/job.vue' /* webpackChunkName: "pages/user/job" */))
 const _380a2a90 = () => interopDefault(import('../pages/user/jobs.vue' /* webpackChunkName: "pages/user/jobs" */))
 const _21586ddf = () => interopDefault(import('../pages/user/profile.vue' /* webpackChunkName: "pages/user/profile" */))
 const _52e814cc = () => interopDefault(import('../pages/user/test.vue' /* webpackChunkName: "pages/user/test" */))
@@ -43,6 +45,10 @@ export const routerOptions = {
     path: "/company",
     component: _ecb00d94,
     name: "company"
+  }, {
+    path: "/home",
+    component: _a0bc3f4e,
+    name: "home"
   }, {
     path: "/user",
     component: _22f04008,
@@ -99,6 +105,10 @@ export const routerOptions = {
     path: "/user/ideas",
     component: _41f0e292,
     name: "user-ideas"
+  }, {
+    path: "/user/job",
+    component: _5fb7d61a,
+    name: "user-job"
   }, {
     path: "/user/jobs",
     component: _380a2a90,

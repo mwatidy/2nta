@@ -563,9 +563,6 @@ div.content-wrapper
 <script>
 export default {
     head: {
-        link: [
-                { rel: 'stylesheet', href:"/app-assets/css/pages/users.css" }
-            ],
         script: [
             { src: "/app-assets/js/scripts/pages/user-profile.js", body: true, defer: true  }
         ]        

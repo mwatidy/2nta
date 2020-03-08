@@ -84,43 +84,8 @@ export default {
 
         title: "2fkarak 2nta",
         script: [
-            { src: "/app-assets/vendors/js/extensions/dropzone.min.js", body: true, defer: true },
-            { src: "/app-assets/vendors/js/tables/datatable/datatables.min.js", body: true, defer: true },
-            { src: "/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js", body: true, defer: true },
-            { src: "/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js", body: true, defer: true },
-            { src: "/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js", body: true, defer: true },
-            { src: "/app-assets/vendors/js/tables/datatable/dataTables.select.min.js", body: true, defer: true },
-            { src: "/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js", body: true, defer: true },
             { src: "/app-assets/js/scripts/ui/data-list-view.js", body: true, defer: true },
-
         ],
-        link: [
-        {
-            "rel": "stylesheet",
-            "type": "text/css",
-            "href": "/app-assets/vendors/css/file-uploaders/dropzone.min.css"
-        },
-        {
-            "rel": "stylesheet",
-            "type": "text/css",
-            "href": "/app-assets/vendors/css/tables/datatable/datatables.min.css"
-        },
-        {
-            "rel": "stylesheet",
-            "type": "text/css",
-            "href": "/app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css"
-        },
-        {
-            "rel": "stylesheet",
-            "type": "text/css",
-            "href": "/app-assets/css/plugins/file-uploaders/dropzone.css"
-        },
-        {
-            "rel": "stylesheet",
-            "type": "text/css",
-            "href": "/app-assets/css/pages/data-list-view.css"
-        }
-    ]
     }
     }   
 }
