@@ -1,0 +1,15 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-2nta-prod-232231-authRole",
+            "UnauthRoleArn": "arn:aws:iam::732303830999:role/amplify-2nta-prod-232231-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::732303830999:role/amplify-2nta-prod-232231-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-2nta-prod-232231-deployment",
+            "UnauthRoleName": "amplify-2nta-prod-232231-unauthRole",
+            "StackName": "amplify-2nta-prod-232231",
+            "StackId": "arn:aws:cloudformation:us-east-1:732303830999:stack/amplify-2nta-prod-232231/ac1c41a0-6fb8-11ea-b998-0ad23187ddb2",
+            "AmplifyAppId": "d2zg6xjnwn5msv"
+        }
+    }
+}

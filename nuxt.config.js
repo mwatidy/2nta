@@ -25,8 +25,8 @@ export default {
       { rel: "stylesheet", type: "text/css", href: "/app-assets/css/components.css" },
       { rel: "stylesheet", type: "text/css", href: "/app-assets/css/core/menu/menu-types/vertical-menu.css" },
       { rel: "stylesheet", type: "text/css", href: "/app-assets/css/core/colors/palette-gradient.css" },
-      { rel:'stylesheet', type:'text/css', href:'/app-assets/css/pages/dashboard-analytics.css' },
-      { rel:'stylesheet', type:'text/css', href:'/app-assets/css/pages/card-analytics.css' },
+      { rel: 'stylesheet', type:'text/css', href:'/app-assets/css/pages/dashboard-analytics.css' },
+      { rel: 'stylesheet', type:'text/css', href:'/app-assets/css/pages/card-analytics.css' },
       { rel: "stylesheet", type: "text/css", href: "/app-assets/vendors/css/file-uploaders/dropzone.min.css" },
       { rel: "stylesheet", type: "text/css", href: "/app-assets/vendors/css/tables/datatable/datatables.min.css" },
       { rel: "stylesheet", type: "text/css", href: "/app-assets/vendors/css/tables/datatable/extensions/dataTables.checkboxes.css" },
@@ -74,6 +74,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/amplify.js', mode: 'client' }
   ],
   /*
   ** Nuxt.js dev-modules

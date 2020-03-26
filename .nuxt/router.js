@@ -5,6 +5,8 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _ecb00d94 = () => interopDefault(import('../pages/company/index.vue' /* webpackChunkName: "pages/company/index" */))
 const _a0bc3f4e = () => interopDefault(import('../pages/home.vue' /* webpackChunkName: "pages/home" */))
+const _627f115f = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
+const _4150d1c6 = () => interopDefault(import('../pages/register.vue' /* webpackChunkName: "pages/register" */))
 const _22f04008 = () => interopDefault(import('../pages/user/index.vue' /* webpackChunkName: "pages/user/index" */))
 const _25fa06ab = () => interopDefault(import('../pages/community/companies.vue' /* webpackChunkName: "pages/community/companies" */))
 const _5987ce4d = () => interopDefault(import('../pages/community/company.vue' /* webpackChunkName: "pages/community/company" */))
@@ -49,6 +51,14 @@ export const routerOptions = {
     path: "/home",
     component: _a0bc3f4e,
     name: "home"
+  }, {
+    path: "/login",
+    component: _627f115f,
+    name: "login"
+  }, {
+    path: "/register",
+    component: _4150d1c6,
+    name: "register"
   }, {
     path: "/user",
     component: _22f04008,

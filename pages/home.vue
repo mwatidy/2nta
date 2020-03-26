@@ -7,16 +7,16 @@ section
                 .col-12
                     h2.my-2 Welcome to 2NTA
             .row
-                .col-12.col-md-6.py-4
-                    .card.text-white.bg-gradient-info.text-center
+                .col-12.col-md-6.p-2.pb-0
+                    .card.text-white.bg-gradient-info.text-center.grow
                         .card-content
                             .card-body
                                 span.h1.text-white.mt-3.mb-1.d-block
                                     i.fa.fa-building-o
                                 h3.card-title.text-white Sharekat
                                 p Dawar 3ala mwazafen bsohola
-                .col-12.col-md-6.py-4
-                    .card.text-white.bg-gradient-success.text-center
+                .col-12.col-md-6.p-2.pb-0
+                    .card.text-white.bg-gradient-success.text-center.grow
                         .card-content
                             .card-body
                                 span.h1.text-white.mt-3.mb-1.d-block
@@ -35,13 +35,21 @@ export default {
             { rel:'stylesheet', type: 'text/css', href: '/app-assets/css/pages/coming-soon.css' }
         ],
         script: [ 
+            
         ],
-        bodyAttrs: { 
-            class: 'vertical-layout vertical-menu-modern 1-column navbar-floating footer-static bg-full-screen-image blank-page blank-page',
-            "data-open": 'click', 
-            "data-menu": 'vertical-menu-modern', 
-            "data-col": '1-column'
-        }
     },
 }
 </script>
+
+<style scoped>
+    .grow {
+        transition: all .1s ease-in-out;
+      }
+
+    .grow:hover {
+        cursor: pointer;
+        z-index: 1000;
+        transform: scale(1.2);
+    }
+
+</style>
