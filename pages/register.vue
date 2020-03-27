@@ -1,22 +1,11 @@
 <template lang="pug">
-section.row.flexbox-container(v-if="registered")
+section.row.flexbox-container(v-if="step === steps.register")
     .col-xl-8.col-10.d-flex.justify-content-center
-        .card.rounded-0.mb-0.p-5
-            h1 Registeration Complete
-            p.pt-1 Please check your email to validate your account
-
-section.row.flexbox-container(v-else)
-    .col-xl-8.col-10.d-flex.justify-content-center(v-if="loading")
-        .card.rounded-0.mb-0.p-5.d-flex.flex-row
-            .spinner-border.text-primary(role="status")
-                span.sr-only Loading...
-            h1.pl-2 Loading ... 
-    .col-xl-8.col-10.d-flex.justify-content-center(v-else)
         .card.bg-authentication.rounded-0.mb-0
             .row.m-0
                 .col-lg-6.d-lg-block.d-none.text-center.align-self-center.pl-0.pr-3.py-0
                     img(src='~/assets/images/pages/register.jpg', alt='branding logo')
-                .col-lg-6.col-12.p-0(v-if="!loading")
+                .col-lg-6.col-12.p-0
                     .card.rounded-0.mb-0.p-2
                         .card-header.pt-50.pb-1
                             .card-title
@@ -69,27 +58,77 @@ section.row.flexbox-container(v-else)
                                     button.btn.btn-primary.float-right.btn-inline.mb-50(type="submit")
                                         | Register
 
+
+
+section.row.flexbox-container(v-else-if="step === steps.complete")
+    .col-xl-8.col-10.d-flex.justify-content-center
+        .card.rounded-0.mb-0.p-5
+            h1 Registeration Complete
+            p.pt-1 Thank you for registering with 2nta, you will be redirected to your profile now.
+
+section.row.flexbox-container(v-else-if="step === steps.loading")
+    .col-xl-8.col-10.d-flex.justify-content-center
+        .card.rounded-0.mb-0.p-5.d-flex.flex-row
+            .spinner-border.text-primary(role="status")
+                span.sr-only Loading...
+            h1.pl-2 Loading ... 
+
+section.row.flexbox-container(v-else)
+    .col-xl-8.col-10.d-flex.justify-content-center
+        .card.rounded-0.mb-0
+            .row.m-0
+                .col-12.p-0
+                    .card.rounded-0.mb-0.p-2
+                        .card-header.pt-50.pb-1
+                            .card-title
+                                h4.mb-0 Confirm Email
+                        p.px-2 Please check your email to find the code
+                        .card-content
+                            .card-body.pt-0 
+                                .alert.alert-danger.alert-dismissible.fade.show(v-if="confirmError")
+                                    p.mb-0 {{ confirmError }}
+                                    button.close(type="button", data-dismiss="alert", aria-label="Close")
+
+                                form(v-on:submit.prevent="confirm")
+                                    .form-label-group
+                                        input#inputName.form-control(type='text', v-bind:class="{ 'border-danger': confirmError }" placeholder='Confirmation Code', v-model="code", @keyup="validateName")
+                                        label(for='inputName') Confirmation Code
+
+                                    button.btn.btn-primary.float-right.btn-inline.mb-50(type="submit")
+                                        | Confirm Code
+
+
+
+
+
 </template>
 
 <script>
+
+const steps = {
+    register: "REGISTER",
+    confirm: "CONFIRM",
+    loading: "LOADING",
+    complete: "COMPLETE"
+}
+
 export default {
     layout: "singleColumn",
-    head: {
-        script: [
-             { src: '/app-assets/js/aws/aws-sdk.min.js' },
-        ]
-    },
+
     data() {
         return {
+            steps: { ...steps },
+            step: steps.register,
             name: "",
             email: "",
             password: "",
+            code: "",
             passwordCopy: "",
             nameValidation: "",
             emailValidation: "",
             passValidation: "",
             pass2Validation: "",
-            loading: false,
+            confirmError: false,
             registered: false,
             registerationError: false,
             emailExists: false
@@ -97,12 +136,7 @@ export default {
     },
     mounted() {
 
-
-        AWS.config.region = 'us-east-1'; // Region
-        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-            IdentityPoolId: 'us-east-1:b32dcb9b-9c46-48e2-b358-a734b0ec539b', 
-        });
-        var clientId = '4ar964bo7ka7hqkfv42dn0imdd'
+        this.$auth.isAuthenticated && this.$router.push('/user/')
 
     },
     methods: {
@@ -135,52 +169,71 @@ export default {
             return this.pass2Validation == "success" ? true : false
 
         },
-        registerUser() {
+        async registerUser() {
 
             if(this.validateEmail() && this.validateName() && this.validatePassword() && this.validatePassword2()) {
 
-                this.loading = true;
-                var cognito = new AWS.CognitoIdentityServiceProvider();
+                this.step = this.steps.loading
+                try {
 
-                var params = {
-                ClientId: clientId,
-                Password: this.password, 
-                Username: this.email, 
-                UserAttributes: [
-                    {
-                    Name: 'name', /* required */
-                    Value: this.name
-                    },
-                ],
-                };
+                    var t = await this.$store.dispatch('auth/register', { email: this.email, password: this.password })
+                    this.step = this.steps.confirm
 
-                cognito.signUp(params, function(err, data) {
+                } catch (e) {
+
+
+                    if(e.code === "UsernameExistsException") { 
+                            
+                            try {
+                            
+                                await this.$store.dispatch('auth/resendSignup', { email: this.email })
+                                this.step = this.steps.confirm
+                            
+                            } catch (e) {
+
+                                
+                                this.$router.push('/login')
+
+                            }
+
+
+
+                    }
                     
-                    if (err) {
-                        
-                        window.awserror = err
-                        
-                        this.loading = false;
-                        this.registerationError = err.message;
+                }
+            }
+        },
+        async confirm() {
 
-                        if(err.code == "UsernameExistsException") {
-                            this.emailValidation = "error"
-                            this.emailExists = true
+            this.step = this.steps.loading
+            try { 
 
-                        }
+                await this.$store.dispatch('auth/confirmRegisteration', { email: this.email, code: this.code })
+                await this.$store.dispatch('auth/login', { email: this.email, password: this.password }) 
+                this.step = this.steps.complete;
 
-                    } 
-                    else {
+                console.log("Your are logged in !")
 
-                        this.registered = true
-                        console.log(data);           
+            } catch (error) {
 
-                    }     
-                }.bind(this));
+                this.step = this.steps.confirm
+                this.confirmError = error.message
+
+                console.log({ error })
 
 
             }
+
         }
     }
 }
 </script>
+
+<style scoped>
+
+.bg-authentication {
+    background-color: #EFF2F7;
+}
+
+
+</style>

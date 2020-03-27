@@ -134,7 +134,7 @@ div
                   i.feather.icon-message-square
                   |  Chats
                 .dropdown-divider
-                a.dropdown-item(href='auth-login.html')
+                a.dropdown-item(@click="logout")
                   i.feather.icon-power
                   |  Logout
   ul.main-search-list-defaultlist.d-none
@@ -222,3 +222,15 @@ div
 
 </template>
 
+<script>
+export default {
+  methods: {
+    async logout() {
+
+      await this.$store.dispatch("auth/logout")
+      await this.$router.push("/login")
+
+    }
+  }
+}
+</script>

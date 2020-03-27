@@ -10,6 +10,11 @@
             "StackName": "amplify-2nta-prod-232231",
             "StackId": "arn:aws:cloudformation:us-east-1:732303830999:stack/amplify-2nta-prod-232231/ac1c41a0-6fb8-11ea-b998-0ad23187ddb2",
             "AmplifyAppId": "d2zg6xjnwn5msv"
+        },
+        "categories": {
+            "auth": {
+                "2nta4ac0b5ec": {}
+            }
         }
     }
 }

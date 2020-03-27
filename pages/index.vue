@@ -57,6 +57,12 @@ export default {
                 return this.$store.state.localStorage.emailGathered
             }
         },
+    mounted() {
+        console.log(this.$auth)
+        console.log(this.$auth.isAuthenticated)
+
+        
+    },
     methods: {
         saveEmail() {
             
