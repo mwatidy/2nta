@@ -1,0 +1,61 @@
+
+type User @model {
+    id: ID!
+    dateJoined: String!
+    name: String!
+    email: String!
+    group: User_Group!
+    profile: Profile
+    rating: Float
+    notifications: [Notification]
+ }
+
+
+type Post @model {
+    id: ID!
+    timestamp: Int!
+    user: Owner!
+    description: String!
+    likes: [Owner]!
+    comments: [Comment]
+    media: [Media_Content]
+}
+
+
+type Thread @model {
+    id: ID!
+    users: [Owner]
+    threads: [Message]
+}
+
+
+type Idea @model {
+    id: ID!
+    owner: Owner!
+    date_added: String!
+    title: String!
+    details: String!
+    category: String!
+    sub_category: String!
+    gallery: [Media_Content]
+    rating: Float
+    comments: [Comment]
+ }
+
+
+type Job @model {
+
+    id: ID!
+    timestamp: Int!
+    published: Boolean!
+    company: Owner!
+    status: String!
+    description: String!
+    experience_required: [Experience]
+    education_required: [Education]
+    personality_required: Personality
+    skill_required: [Skill]
+    applicants: [Owner]
+
+}
+

@@ -1,0 +1,13 @@
+ type Query {
+
+    user(id:ID!): User
+    idea(id:ID!): Idea
+    ideas: [Idea]
+    thread(id:ID!): Thread
+    threads: [Thread]
+    job(id:ID!): Job
+    jobs: [Job]
+    post(id:ID!): Post
+    posts: [Post]
+    
+ }
