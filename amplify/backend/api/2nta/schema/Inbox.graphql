@@ -1,0 +1,26 @@
+
+type Thread @model {
+    id: ID!
+    users: [Thread_User]
+    threads: [Message]
+}
+
+type Thread_User {
+    id: ID!
+    name: String!
+    photo: String!
+}
+
+type Message {
+    timestamp: Int!
+    from: Thread_User!
+    to: Thread_User!
+    text: String!
+    attachments: String!
+}
+
+type Query {
+    thread(id:ID!): Thread
+    threads: [Thread]
+ }
+

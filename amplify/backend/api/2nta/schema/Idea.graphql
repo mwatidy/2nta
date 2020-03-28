@@ -1,0 +1,45 @@
+
+type Idea @model {
+    id: ID!
+    owner: Idea_Owner!
+    date_added: String!
+    title: String!
+    details: String!
+    category: String!
+    sub_category: String!
+    gallery: [Idea_Gallery]
+    rating: Float
+    comments: [Idea_Comment]
+ }
+
+type Idea_Comment {
+    date_added: String!
+    from: Idea_Commentor!
+    description: String!
+    likes: Float
+}
+
+type Idea_Commentor {
+    id: ID!
+    name: String!
+    photo: String!
+}
+
+type Idea_Gallery {
+    type: String!
+    link: String!
+}
+
+
+type Idea_Owner {
+    owner_id: ID! 
+    owner_name: String!
+    owner_photo: String!
+ }
+
+
+type Query {
+    idea(id:ID!): Idea
+    ideas: [Idea]
+ }
+

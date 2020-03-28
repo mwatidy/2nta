@@ -1,0 +1,78 @@
+
+type Job @model {
+
+    id: ID!
+    timestamp: Int!
+    published: Boolean!
+    company: Owner!
+    status: String!
+    description: String!
+    experience_required: [Experience]
+    education_required: [Education]
+    personality_required: Personality
+    skill_required: [Skill]
+    applicants: [Applicant]
+
+}
+
+
+type Education {
+    title: String!
+    institute: String!
+    degree: String!
+    start_date: String!
+    end_date: String! 
+}
+
+ type Experience {
+    copmany: String!
+    job_title: String!
+    job_description: String!
+    years: Int!
+ }
+
+ type Skill {
+    name: String!
+    experience_in_month: Int!
+ }
+
+ type Personality {
+    openness: Int!
+    conscientiousness: Int!
+    extraversion: Int!
+    agreeableness: Int!
+    neuroticism: Int!
+ }
+
+
+type Owner {
+    id: ID! 
+    name: String!
+    photo: String!
+}
+
+type Media_Content {
+    id: ID!
+    type: Media_Type!
+    src: String!
+}
+
+type Media_Type {
+    IMAGE
+    VIDEO
+    LINK
+}
+
+
+type Comment {
+    timestamp: Int!
+    from: Owner!
+    text: String!
+}
+
+
+type Query {
+    job(id:ID!): Job
+    jobs: [Job]
+ }
+

@@ -1,0 +1,42 @@
+
+type Post @model {
+    id: ID!
+    timestamp: Int!
+    user: Owner!
+    description: String!
+    likes: [Owner]!
+    comments: [Comment]
+    media: [Media_Content]
+}
+
+
+type Owner {
+    id: ID! 
+    name: String!
+    photo: String!
+}
+
+type Media_Content {
+    id: ID!
+    type: Media_Type!
+    src: String!
+}
+
+type Media_Type {
+    IMAGE
+    VIDEO
+    LINK
+}
+
+
+type Comment {
+    timestamp: Int!
+    from: Owner!
+    text: String!
+}
+
+
+type Query {
+    post(id:ID!): Post
+    posts: [Post]
+ }
