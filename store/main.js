@@ -1,9 +1,9 @@
 export const state = () => ({
-  isEmployee: true
+  userGroup: ""
 })
 
 export const mutations = {
-  changeAccount (state) {
-    state.isEmployee = !state.isEmployee
+  setUserGroup (state, userGroup) {
+    state.userGroup = userGroup
   },
 }

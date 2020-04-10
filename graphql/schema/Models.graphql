@@ -1,0 +1,226 @@
+
+type User @model 
+@key(fields: ["id"])
+{
+
+    id: ID!
+    created_timestamp: Int!
+    updated_timestamp: Int!
+    timezone: String!
+    user_group: UserGroup!
+    email: String!
+
+    notifications: [Notification] @connection
+    profile: Profile @connection
+    threads: [Thread] @connection
+    jobs: [Candidate] @connection
+    ideas: [Idea] @connection
+}
+
+
+
+type Notification @model 
+@key(fields: ["user_id", "id"])
+{
+    id: ID!
+    user_id: ID!
+    created_timestamp: Int!
+    updated_timestamp: Int!    
+
+    status: NotificationStatus
+    action: NotificationAction
+    type: NotificationType
+
+    text: String!
+    link: String!
+    referral_id: ID!
+    referral_data: NotificationReferal @connection(fields: ["referral_id"])
+
+}
+
+
+type Profile @model 
+@key(fields: ["user_id"])
+@key(name: "byGroupAndField", fields: ["user_group", "field"])
+@key(name: "byRating", fields: ["rating", "created_timestamp"])
+@key(name: "byName", fields: ["name", "description", "created_timestamp"])
+{
+
+    user_id: ID!
+    created_timestamp: Int!
+    updated_timestamp: Int!
+
+    name: String!
+    user_group: UserGroup
+    description: String!
+    photo: S3Object
+    cover_photo: S3Object
+    dob: String!
+    
+    field: String!
+    rating: Int
+    skills: [Skill] @connection
+    posts: [Post] @connection
+
+    company_size: String
+
+}
+
+
+type Thread @model 
+@key(fields: ["user_id", "id"])
+{
+
+    id: ID!
+    created_timestamp: Int!
+    updated_timestamp: Int!
+
+    participants: [Participant]! @connection(keyName: "byThread", field: ["id"])
+    messages: [Message] @connection(keyName: "byThread", field: ["id"])
+
+}
+
+type Job @model 
+@key(fields: ["user_id", "id", "created_timestamp"])
+@key(name: "byId", fields: ["id"])
+{
+
+    id: ID!
+    user_id: ID!
+    created_timestamp: Int!
+    updated_timestamp: Int!
+
+    title: String!
+    description: String!
+    status: JobStatus
+
+    required_experience: String!
+    required_skill: String!
+    required_education: String!
+    required_personality: String!
+
+    candidates: [Candidate] @connection(keyName: "byJobId", field: ["id"])
+
+
+}
+
+type Idea @model 
+@key(fields: ["user_id", "id"])
+@key(name: "byCategories", fields: ["categories", "created_timestamp"])
+@key(name: "byRating", fields: ["rating", "created_timestamp"])
+@key(name: "byText", fields: ["title", "description", "created_timestamp"])
+{
+
+    id: ID!
+    user_id: ID!
+    created_timestamp: Int!
+    updated_timestamp: Int!
+
+    title: String!
+    categories: String!
+    description: String!
+    attachments: [S3Object]
+    rating: Int
+
+    engagements: [Engagement]  @connection(fields: ["user_id", "id"])
+
+
+}
+
+type Skill @model
+@key(fields: ["user_id", "type"])
+@key(name: "byDetails", fields: ["type", "level", "name", "value"])
+{
+    user_id: ID!
+    
+    type: SkillType!
+    level: SkillLevel
+    
+    name: String!
+    value: String!
+    description: String
+    
+}
+
+type Post @model
+@key(fields: ["user_id", "id", "created_timestamp"])
+@key(name: "byText", fields: ["text", "created_timestamp"])
+{
+
+    id: ID!
+    user_id: ID!
+    created_timestamp: Int!
+    updated_timestamp: Int!
+
+    text: String!
+    attachments: [S3Object]
+    
+    profile: Profile @connection
+    engagements: [Engagement] @connection(fields: ["user_id", "id"])
+
+}
+
+
+type Participant @model
+@key(fields: ["user_id", "thread_id"])
+@key(name: "byThread", fields: ["thread_id"])
+{
+
+    user_id: ID!
+    thread_id: ID!
+    created_timestamp: Int!
+    profile: Profile @connection(fields: ["user_id"])
+
+}
+
+
+type Candidate @model
+@key(fields: ["user_id", "job_id", "status"])
+@key(name:"byJobId", fields: ["job_id", "user_id", "status"])
+{
+
+    job_id: ID!
+    user_id: ID!
+    created_timestamp: Int!
+    updated_timestamp: Int!
+
+    status: CandidateStatus
+
+}
+
+type Engagement @model
+@key(fields: ["user_id", "referral_id", "id", "created_timestamp"])
+{
+
+    id: ID!
+    user_id: ID!
+    from_id: ID!
+    referral_id: ID!
+
+    created_timestamp: Int!
+    updated_timestamp: Int!
+
+    type: EngagementType
+    text: String
+    from: Profile @connection(fields: ["from_id"])
+    referral: EngagementReferral @connection(fields: ["user_id", "referral_id"]) 
+
+}
+
+type Message @model
+@key(fields: ["user_id", "thread_id", "created_timestamp"])
+@key(name: "byThread", fields: ["thread_id"])
+{
+    id: ID!
+    user_id: ID!
+    thread_id: ID!
+
+    created_timestamp: Int!
+    updated_timestamp: Int!
+
+    text: String
+    attachments: [S3Object] 
+    profile: Profile @connection(fields: ["user_id"])
+
+}
+

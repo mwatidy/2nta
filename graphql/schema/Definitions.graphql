@@ -1,0 +1,79 @@
+enum UserGroup {
+    COMPANY
+    EMPLOYEE
+}
+
+type S3Object {
+  name: String!
+  type: FileType!
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+
+enum FileType {
+    IMAGE
+    VIDEO
+    FILE
+}
+
+enum NotificationStatus {
+    ACTIVE
+    READ
+    DELETED
+}
+
+enum NotificationAction {
+    PENDING
+    ACCEPTED
+    REJECTED
+}
+
+enum NotificationType {
+    SYSTEM
+    LIKE
+    COMMENT
+    MESSAGE
+    POST
+    JOB
+    IDEA
+}
+
+union NotificationReferal = Engagement | Post | Job | Idea
+
+
+enum JobStatus {
+    PENDING
+    MATCHED
+    ENDED
+}
+
+enum SkillType {
+    PERSONALITY
+    EXPERIENCE
+    SKILL
+    EDUCATION
+}
+
+enum SkillLevel {
+    BEGINNER
+    INTERMEDIATE
+    ADVANCED
+}
+
+enum CandidateStatus {
+    PENDING
+    USER_ACCEPTED
+    USER_REJECTED
+    COMPANY_ACCEPTED
+    COMPANY_REJECTED
+}
+
+enum EngagementType {
+    COMMENT
+    LIKE
+}
+
+union EngagementReferral = Idea | Post
+

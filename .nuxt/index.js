@@ -57,8 +57,6 @@ async function createApp (ssrContext) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"},{"http-equiv":"Content-Type","content":"text\u002Fhtml; charset=UTF-8"},{"http-equiv":"X-UA-Compatible","content":"IE=edge"},{"hid":"description","name":"description","content":""}],"link":[{"rel":"apple-touch-icon","href":"\u002Fapp-assets\u002Fimages\u002Fico\u002Fapple-icon-120.png"},{"rel":"shortcut icon","type":"image\u002Fx-icon","href":"\u002Fapp-assets\u002Fimages\u002Fico\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,600"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Fvendors.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Fextensions\u002Ftether-theme-arrows.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fbootstrap.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fbootstrap-extended.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcolors.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcomponents.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcore\u002Fmenu\u002Fmenu-types\u002Fvertical-menu.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcore\u002Fcolors\u002Fpalette-gradient.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fpages\u002Fdashboard-analytics.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fpages\u002Fcard-analytics.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Ffile-uploaders\u002Fdropzone.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Ftables\u002Fdatatable\u002Fdatatables.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Ftables\u002Fdatatable\u002Fextensions\u002FdataTables.checkboxes.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fplugins\u002Ffile-uploaders\u002Fdropzone.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fpages\u002Fdata-list-view.css"},{"rel":"stylesheet","href":"\u002Fapp-assets\u002Fcss\u002Fpages\u002Fusers.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fassets\u002Fcss\u002Fstyle.css"}],"script":[{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fvendors.min.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fcore\u002Fapp-menu.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fcore\u002Fapp.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fscripts\u002Fcomponents.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fcharts\u002Fapexcharts.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fextensions\u002Ftether.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fextensions\u002Fshepherd.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fextensions\u002Fdropzone.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fdatatables.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fdatatables.bootstrap4.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fdatatables.buttons.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fbuttons.bootstrap.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002FdataTables.select.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fdatatables.checkboxes.min.js","body":true}],"bodyAttrs":{"class":"vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static menu-expanded","data-open":"click","data-menu":"vertical-menu-modern","data-col":"2-columns"},"style":[]},
-
     store,
     router,
     nuxt: {
@@ -88,10 +86,7 @@ async function createApp (ssrContext) {
         err = err || null
         app.context._errored = Boolean(err)
         err = err ? normalizeError(err) : null
-        let nuxt = app.nuxt // to work with @vue/composition-api, see https://github.com/nuxt/nuxt.js/issues/6517#issuecomment-573280207
-        if (this) {
-          nuxt = this.nuxt || this.$options.nuxt
-        }
+        const nuxt = this.nuxt || this.$options.nuxt
         nuxt.dateErr = Date.now()
         nuxt.err = err
         // Used in src/server.js
@@ -135,7 +130,7 @@ async function createApp (ssrContext) {
       throw new Error('inject(key, value) has no key provided')
     }
     if (value === undefined) {
-      throw new Error(`inject('${key}', value) has no value provided`)
+      throw new Error('inject(key, value) has no value provided')
     }
 
     key = '$' + key

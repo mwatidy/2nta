@@ -81,6 +81,16 @@
 </template>
 
 <script>
+
+// import * as queries from '~/graphql/queries';
+// import * as mutations from '~/graphql/mutations';
+// import * as subscriptions from '~/graphql/subscriptions';
+
+import Amplify, { API, graphqlOperation } from 'aws-amplify';
+import * as queries from '~/graphql/queries';
+
+
+
 export default {
     data() {
         return {
@@ -109,6 +119,20 @@ export default {
         "data-menu": 'vertical-menu-modern',
         "data-col": "content-detached-left-sidebar",
       }
-    }
+    },
+    mounted() {
+
+        API.graphql(graphqlOperation(queries.ideas)).then(data => {
+
+            console.log("ideas are")
+            console.log(data)
+
+        }).catch(console.log)
+        
+        //const newTodo = await API.graphql(graphqlOperation(mutations.createTodo, {input: todoDetails}));
+
+
+
+    },
 }
 </script>

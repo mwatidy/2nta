@@ -2,10 +2,8 @@ import Vue from 'vue'
 
 import {
   getMatchedComponentsInstances,
-  getChildrenComponentInstancesUsingFetch,
   promisify,
-  globalHandleError,
-  sanitizeComponent
+  globalHandleError
 } from './utils'
 
 import NuxtLoading from './components/nuxt-loading.vue'
@@ -15,9 +13,11 @@ import _6f6c098b from '../layouts/default.vue'
 import _e669ef1c from '../layouts/defaultCompany.vue'
 import _194038b4 from '../layouts/singleColumn.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b),"_defaultCompany": sanitizeComponent(_e669ef1c),"_singleColumn": sanitizeComponent(_194038b4) }
+const layouts = { "_default": _6f6c098b,"_defaultCompany": _e669ef1c,"_singleColumn": _194038b4 }
 
 export default {
+  head: {"title":"2nta","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"},{"http-equiv":"Content-Type","content":"text\u002Fhtml; charset=UTF-8"},{"http-equiv":"X-UA-Compatible","content":"IE=edge"},{"hid":"description","name":"description","content":"waza2f bshkl gdeed"}],"link":[{"rel":"apple-touch-icon","href":"\u002Fapp-assets\u002Fimages\u002Fico\u002Fapple-icon-120.png"},{"rel":"shortcut icon","type":"image\u002Fx-icon","href":"\u002Fapp-assets\u002Fimages\u002Fico\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Montserrat:300,400,500,600"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Fvendors.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Fextensions\u002Ftether-theme-arrows.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fbootstrap.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fbootstrap-extended.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcolors.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcomponents.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcore\u002Fmenu\u002Fmenu-types\u002Fvertical-menu.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fcore\u002Fcolors\u002Fpalette-gradient.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fpages\u002Fdashboard-analytics.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fpages\u002Fcard-analytics.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Ffile-uploaders\u002Fdropzone.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Ftables\u002Fdatatable\u002Fdatatables.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fvendors\u002Fcss\u002Ftables\u002Fdatatable\u002Fextensions\u002FdataTables.checkboxes.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fplugins\u002Ffile-uploaders\u002Fdropzone.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fapp-assets\u002Fcss\u002Fpages\u002Fdata-list-view.css"},{"rel":"stylesheet","href":"\u002Fapp-assets\u002Fcss\u002Fpages\u002Fusers.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002Fassets\u002Fcss\u002Fstyle.css"}],"script":[{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fvendors.min.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fcore\u002Fapp-menu.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fcore\u002Fapp.js","body":true},{"src":"\u002Fapp-assets\u002Fjs\u002Fscripts\u002Fcomponents.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fcharts\u002Fapexcharts.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fextensions\u002Ftether.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fextensions\u002Fshepherd.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Fextensions\u002Fdropzone.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fdatatables.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fdatatables.bootstrap4.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fdatatables.buttons.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fbuttons.bootstrap.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002FdataTables.select.min.js","body":true},{"src":"\u002Fapp-assets\u002Fvendors\u002Fjs\u002Ftables\u002Fdatatable\u002Fdatatables.checkboxes.min.js","body":true}],"bodyAttrs":{"class":"vertical-layout vertical-menu-modern 2-columns navbar-floating footer-static menu-expanded","data-open":"click","data-menu":"vertical-menu-modern","data-col":"2-columns"},"style":[]},
+
   render (h, props) {
     const loadingEl = h('NuxtLoading', { ref: 'loading' })
 
@@ -59,10 +59,8 @@ export default {
     isOnline: true,
 
     layout: null,
-    layoutName: '',
-
-    nbFetching: 0
-    }),
+    layoutName: ''
+  }),
 
   beforeCreate () {
     Vue.util.defineReactive(this, 'nuxt', this.$options.nuxt)
@@ -95,10 +93,6 @@ export default {
   computed: {
     isOffline () {
       return !this.isOnline
-    },
-
-      isFetching() {
-      return this.nbFetching > 0
     }
   },
 
@@ -127,17 +121,8 @@ export default {
       const promises = pages.map((page) => {
         const p = []
 
-        // Old fetch
-        if (page.$options.fetch && page.$options.fetch.length) {
+        if (page.$options.fetch) {
           p.push(promisify(page.$options.fetch, this.context))
-        }
-        if (page.$fetch) {
-          p.push(page.$fetch())
-        } else {
-          // Get all component instance to call $fetch
-          for (const component of getChildrenComponentInstancesUsingFetch(page.$vnode.componentInstance)) {
-            p.push(component.$fetch())
-          }
         }
 
         if (page.$options.asyncData) {
@@ -156,7 +141,7 @@ export default {
       try {
         await Promise.all(promises)
       } catch (error) {
-        this.$loading.fail(error)
+        this.$loading.fail()
         globalHandleError(error)
         this.error(error)
       }
@@ -166,7 +151,7 @@ export default {
     errorChanged () {
       if (this.nuxt.err && this.$loading) {
         if (this.$loading.fail) {
-          this.$loading.fail(this.nuxt.err)
+          this.$loading.fail()
         }
         if (this.$loading.finish) {
           this.$loading.finish()

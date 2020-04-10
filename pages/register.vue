@@ -136,7 +136,7 @@ export default {
     },
     mounted() {
 
-        this.$auth.isAuthenticated && this.$router.push('/user/')
+        //this.$auth.isAuthenticated && this.$router.push('/user')
 
     },
     methods: {
