@@ -1,131 +1,83 @@
-
-union Profile = User_Profile | Company_Profile
-
-enum User_Group {
+enum UserGroup {
     COMPANY
-    USER
+    EMPLOYEE
 }
 
- type Company_Profile {
-    lastUpdate: String
-    about: String
-    location: String
-    photo: Media_Content
-    coverPhoto: Media_Content
-    industry: String!
-    age: String!
-    size: String!
- }
-
- type User_Profile {
-    lastUpdate: String
-    gender: String!
-    dob: String!
-    about: String
-    location: String
-    photo: Media_Content
-    coverPhoto: Media_Content
-    experience: [Experience]
-    education: [Education]
-    skills: [Skill]
-    personality: Personality
- }
-
-
-type Education {
-    title: String!
-    institute: String!
-    degree: String!
-    start_date: String!
-    end_date: String! 
-}
-
- type Experience {
-    copmany: String!
-    job_title: String!
-    job_description: String!
-    years: Int!
- }
-
- type Skill {
-    name: String!
-    experience_in_month: Int!
- }
-
- type Personality {
-    openness: Int!
-    conscientiousness: Int!
-    extraversion: Int!
-    agreeableness: Int!
-    neuroticism: Int!
- }
-
-type Notification {
-    id: ID!
-    timestamp: Int!
-    active: Boolean!
-    read: Boolean!
-    data: Notification_Data!
-}
-
-enum Notification_Type {
-    JOB
-    IDEA
-    POST
-    MESSAGE
-    SYSTEM
-}
-
-enum Notification_Action {
-    ACCEPT
-    REJECT
-    VIEW
-    CAMCEL
-    REMOVE
-}
-
-type Notification_Data {
-    type: Notification_Type!
-    attach_id: ID!
-    description: String!
-    actions: [Notification_Action]
+type S3Object {
+  name: String!
+  type: FileType!
+  bucket: String!
+  region: String!
+  key: String!
 }
 
 
-
-
-type Message {
-    timestamp: Int!
-    from: Owner!
-    to: Owner!
-    text: String!
-    attachments: [Media_Content]
-}
-
-type Owner {
-    id: ID! 
-    name: String!
-    photo: String!
-}
-
-type Media_Content {
-    id: ID!
-    type: Media_Type!
-    src: String!
-}
-
-enum Media_Type {
+enum FileType {
     IMAGE
     VIDEO
-    LINK
     FILE
 }
 
-type Comment {
-    timestamp: Int!
-    from: Owner!
-    text: String!
-    likes: [Owner]
+enum NotificationStatus {
+    ACTIVE
+    READ
+    DELETED
 }
 
+enum NotificationAction {
+    PENDING
+    ACCEPTED
+    REJECTED
+}
+
+enum NotificationType {
+    SYSTEM
+    LIKE
+    COMMENT
+    MESSAGE
+    POST
+    JOB
+    IDEA
+}
+
+
+
+
+enum JobStatus {
+    PENDING
+    MATCHED
+    ENDED
+}
+
+enum SkillType {
+    PERSONALITY
+    EXPERIENCE
+    SKILL
+    EDUCATION
+}
+
+enum SkillLevel {
+    BEGINNER
+    INTERMEDIATE
+    ADVANCED
+}
+
+enum CandidateStatus {
+    PENDING
+    USER_ACCEPTED
+    USER_REJECTED
+    COMPANY_ACCEPTED
+    COMPANY_REJECTED
+}
+
+enum EngagementType {
+    COMMENT
+    LIKE
+}
+
+
+enum EngagementSource {
+    IDEA
+    POST
+}
 

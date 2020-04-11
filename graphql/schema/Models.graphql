@@ -33,8 +33,7 @@ type Notification @model
 
     text: String!
     link: String!
-    referral_id: ID!
-    referral_data: NotificationReferal @connection(fields: ["referral_id"])
+    picture: S3Object
 
 }
 
@@ -70,13 +69,13 @@ type Profile @model
 type Thread @model 
 @key(fields: ["user_id", "id"])
 {
-
     id: ID!
+    user_id: ID!
     created_timestamp: Int!
     updated_timestamp: Int!
 
-    participants: [Participant]! @connection(keyName: "byThread", field: ["id"])
-    messages: [Message] @connection(keyName: "byThread", field: ["id"])
+    participants: [Participant]! @connection(keyName: "byThread", fields: ["id"])
+    messages: [Message] @connection(keyName: "byThread", fields: ["id"])
 
 }
 
@@ -99,7 +98,7 @@ type Job @model
     required_education: String!
     required_personality: String!
 
-    candidates: [Candidate] @connection(keyName: "byJobId", field: ["id"])
+    candidates: [Candidate] @connection(keyName: "byJobId", fields: ["id"])
 
 
 }
@@ -122,7 +121,7 @@ type Idea @model
     attachments: [S3Object]
     rating: Int
 
-    engagements: [Engagement]  @connection(fields: ["user_id", "id"])
+    engagements: [Engagement] @connection(fields: ["user_id", "id"])
 
 
 }
@@ -184,12 +183,12 @@ type Candidate @model
     created_timestamp: Int!
     updated_timestamp: Int!
 
-    status: CandidateStatus
+    status: CandidateStatus!
 
 }
 
 type Engagement @model
-@key(fields: ["user_id", "referral_id", "id", "created_timestamp"])
+@key(fields: ["user_id", "referral_id"])
 {
 
     id: ID!
@@ -200,10 +199,10 @@ type Engagement @model
     created_timestamp: Int!
     updated_timestamp: Int!
 
-    type: EngagementType
+    type: EngagementType!
+    source: EngagementSource!
     text: String
     from: Profile @connection(fields: ["from_id"])
-    referral: EngagementReferral @connection(fields: ["user_id", "referral_id"]) 
 
 }
 

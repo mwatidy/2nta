@@ -40,7 +40,7 @@ enum NotificationType {
     IDEA
 }
 
-union NotificationReferal = Engagement | Post | Job | Idea
+
 
 
 enum JobStatus {
@@ -75,5 +75,9 @@ enum EngagementType {
     LIKE
 }
 
-union EngagementReferral = Idea | Post
+
+enum EngagementSource {
+    IDEA
+    POST
+}
 

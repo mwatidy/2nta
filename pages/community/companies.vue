@@ -87,7 +87,7 @@
 // import * as subscriptions from '~/graphql/subscriptions';
 
 import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import * as queries from '~/graphql/queries';
+//import * as queries from '~/graphql/queries';
 
 
 
